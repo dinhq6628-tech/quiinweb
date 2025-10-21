@@ -1,186 +1,372 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiin Quang Dinh Official</title>
-    <!-- Thêm Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-9Y6nGmI8oZ9v+2UlpY4UObmRhuWz1N9kQh2VkmSguhEm1cTP+zCmQEDU6X4T6N5+phq7H0I2ZybYI5Jj4QHwug=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
     <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #f8f8f8;
+      :root{
+        --bg:#f8f8f8; --card:#fff; --accent:#0078ff; --text:#222;
+      }
+      [data-theme="dark"]{
+        --bg:#0f1720; --card:#0b1220; --accent:#3ea0ff; --text:#e6eef8;
       }
 
-      header {
-        text-align: center;
-        padding: 20px;
-        background-color: #fff;
-      }
+      html,body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);scroll-behavior:smooth}
+      header{background:var(--card);text-align:center;padding:18px 12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+      header img{border-radius:50%}
+      nav{background:#000;text-align:center;padding:10px 0;position:sticky;top:0;z-index:100}
+      nav ul{list-style:none;margin:0;padding:0}
+      nav ul li{display:inline-block;margin:0 12px}
+      nav ul li a{color:#fff;font-weight:700;text-decoration:none}
+      nav ul li a:hover{color:var(--accent)}
+      main{max-width:980px;margin:18px auto;padding:16px}
+      h2{color:var(--accent);border-bottom:2px solid var(--accent);display:inline-block;margin-top:28px}
+      table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--card)}
+      th,td{padding:10px;border:1px solid #d0d7df}
+      th{background:var(--accent);color:#fff}
+      .service-section ul{list-style:"🔧 ";margin-left:20px}
+      .comment-box{background:var(--card);border:1px solid #ddd;padding:12px;border-radius:8px;margin-bottom:12px}
+      .reply-item{background:rgba(0,0,0,0.03);padding:8px;border-radius:6px;margin:8px 0}
+      .btn{padding:8px 12px;border-radius:8px;border:none;cursor:pointer;background:var(--accent);color:#fff}
+      .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+      input[type="text"], textarea{width:100%;padding:8px;margin:6px 0;border-radius:6px;border:1px solid #ccc;box-sizing:border-box;background:transparent;color:var(--text)}
+      footer{text-align:center;padding:12px;background:#000;color:#fff;margin-top:28px}
 
-      header img {
-        border-radius: 50%;
+      /* floating contact */
+      .floating {
+        position:fixed;right:16px;bottom:16px;z-index:999;display:flex;flex-direction:column;gap:8px;
       }
+      .floating a, .floating button{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:var(--accent);color:#fff;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+      .floating .open-support{background:#111;padding:8px 12px;border-radius:24px}
 
-      main {
-        padding: 20px;
-        line-height: 1.6;
-      }
+      /* top button */
+      #toTop{position:fixed;left:16px;bottom:18px;z-index:999;padding:8px 10px;border-radius:8px;background:var(--card);border:1px solid #ddd;cursor:pointer}
 
-      a {
-        color: #0078ff;
-        text-decoration: none;
-      }
+      /* small helpers */
+      .small-muted{color:gray;font-size:13px}
+      .meta-row{display:flex;gap:12px;flex-wrap:wrap}
+      .stat{background:var(--card);padding:10px;border-radius:8px;border:1px solid #e6eef8}
+      .feedback-card{background:var(--card);padding:12px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px}
 
-      a:hover {
-        text-decoration: underline;
-      }
-
-      footer {
-        background-color: #000;
-        color: #fff;
-        text-align: center;
-        padding: 15px 10px;
-        font-size: 14px;
-        margin-top: 20px;
-      }
-
-  
+      /* responsiveness */
+      @media (max-width:600px){nav ul li{display:block;padding:6px 0}}
     </style>
   </head>
 
   <body>
     <header>
-      <img
-        src="https://i.postimg.cc/JzT9dvz0/IMG-20250819-113944-306.jpg"
-        alt="Quiin Quang Dinh"
-        width="80"
-        height="80"
-      />
+      <img src="https://i.postimg.cc/JzT9dvz0/IMG-20250819-113944-306.jpg" width="80" height="80" alt="avatar">
       <h1>𝙌𝙪𝙞𝙞𝙣 𝙌𝙪𝙖𝙣𝙜 𝘿𝙞𝙣𝙝</h1>
+      <div style="margin-top:8px" class="meta-row">
+        <div class="stat">📅 <b>4+</b> năm kinh nghiệm</div>
+        <div class="stat">💻 <b>~500</b> thiết bị hỗ trợ</div>
+        <div class="stat">⭐ <b>200+</b> khách hài lòng</div>
+      </div>
+      <div style="margin-top:8px">
+        <button id="darkToggle" class="btn ghost" title="Chế độ tối">Dark Mode</button>
+      </div>
     </header>
 
+    <nav>
+      <ul>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#services">Dịch vụ & Giá</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#support">Yêu cầu hỗ trợ</a></li>
+      </ul>
+    </nav>
+
     <main>
-      <p><i>Xin Chào 👋 Tôi Là Quang Định - Lập Trình Viên - Kỹ Thuật Viên</i></p>
-      <p class="abot"><b><u>About Me 🧑‍🔧</u></b></p>
-      <p>
-        <i>
-          Tôi có hơn 4 năm kinh nghiệm trong việc xây dựng giao diện web bằng
-          React và TailwindCSS. Tôi yêu thích việc tạo ra những sản phẩm đơn
-          giản, nhanh và dễ dùng. Ngoài lập trình, tôi thường viết blog chia sẻ
-          kiến thức và thiết kế UI, sửa chữa phần mềm điện thoại máy tính, và
-          khá là thích bộ môn vọc vạch 😂😂
-        </i>
-      </p>
+      <!-- ABOUT -->
+      <section id="about">
+        <h2>Giới thiệu</h2>
+        <p><i>Xin chào 👋 Tôi là Quang Định - Lập Trình Viên - Kỹ Thuật Viên.</i></p>
+        <p>Tôi giúp: cài hệ điều hành, tối ưu máy lag, cứu dữ liệu, root/jailbreak, cập nhật firmware, tư vấn kỹ thuật online.</p>
+        <p><b>Kỹ năng:</b> Python, CSS, HTML, JavaScript, React, Git...</p>
+        <h3>Liên hệ & Mạng xã hội</h3>
+        <p>
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" width="16">
+          <a href="https://www.facebook.com/quangdinhbev" target="_blank">Facebook</a> ·
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="16">
+          <a href="https://t.me/quangdingsw" target="_blank">Telegram</a> ·
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" width="16">
+          <a href="https://www.youtube.com/@Quiinquangdinh" target="_blank">YouTube</a>
+        </p>
+        <h3>Ngân hàng & Ví điện tử</h3>
+        <p>MB Bank: <u><b>0385763287</b></u> · MoMo: <u><b>0385763287</b></u> (Tên: <b>LU QUANG DINH</b>)</p>
+      </section>
 
-      <p><b>Kĩ năng:</b></p>
-      <p><i>Python, CSS, HTML, JavaScript, React, Git,...</i></p>
+      <!-- SERVICES -->
+      <section id="services">
+        <h2>Dịch vụ & Giá dịch vụ</h2>
+        <table>
+          <tr><th>Dịch vụ</th><th>Mức giá (VNĐ)</th><th>Ghi chú</th></tr>
+          <tr><td>🖥️ Cài Windows full driver + phần mềm</td><td>100k – 200k</td><td>Upsell: Office, diệt virus</td></tr>
+          <tr><td>💻 Cài macOS / tối ưu macOS</td><td>150k – 300k</td><td>Phức tạp hơn</td></tr>
+          <tr><td>🛡️ Diệt virus, dọn rác, tối ưu</td><td>80k – 150k</td><td>Nhanh, dễ ra khách</td></tr>
+          <tr><td>🧩 Fix lỗi Office, trình duyệt, phần mềm</td><td>100k – 200k</td><td>Theo mức độ lỗi</td></tr>
+          <tr><td>💾 Cứu dữ liệu (cơ bản)</td><td>150k – 400k</td><td>Có thể thu cao nếu dữ liệu quan trọng</td></tr>
+          <tr><td>📱 Root / Jailbreak điện thoại</td><td>150k – 300k</td><td>Hướng dẫn online</td></tr>
+          <tr><td>🔧 Fix lỗi Android/iOS phần mềm</td><td>100k – 250k</td><td>Tùy lỗi</td></tr>
+          <tr><td>🔁 Backup / chuyển dữ liệu / clone ổ</td><td>100k – 250k</td><td>Bán gói bảo trì</td></tr>
+          <tr><td>🗓️ Gói bảo trì định kỳ (tháng/quý)</td><td>200k – 500k</td><td>Kiểm tra & hỗ trợ ưu tiên</td></tr>
+        </table>
+        <p><b>🎁 Combo:</b> Cài Win + Office + Tối ưu = <b>250k</b> — Giảm 5–10% cho khách mới.</p>
+      </section>
 
-      <p><b>Kĩ năng mềm:</b></p>
-      <p><i>Ngoại ngữ, Phần mềm điện thoại máy tính, Teamwork,...</i></p>
+      <!-- FEEDBACK (public form saved) -->
+      <section id="feedback">
+        <h2>Feedback & Khách hàng đã hỗ trợ</h2>
 
-      <p><b>Dự án (Project)</b></p>
-      <p><u>Diệt Ransowmare 😑 (Tạm thời thế thôi hẹ hẹ 🧄🧄)</u></p>
+        <!-- Form feedback (lưu Firestore) -->
+        <div class="feedback-card">
+          <form id="feedbackForm">
+            <input id="fb_name" type="text" placeholder="Tên (ví dụ: Nguyễn A)" required />
+            <textarea id="fb_message" rows="3" placeholder="Gửi feedback hoặc cảm nhận..." required></textarea>
+            <button class="btn" type="submit">Gửi feedback</button>
+          </form>
+        </div>
 
-      <img
-        src="https://i.postimg.cc/SNZ2nkGP/IMG-20251009-181410-995.jpg"
-        alt="Ảnh"
-        width="100"
-        height="100"
-      />
-      <img
-        src="https://i.postimg.cc/zXdby8ks/IMG-20251009-182101-348.jpg"
-        alt="Ảnh"
-        width="100"
-        height="100"
-      />
-      <p><u>Cập nhật firmware của tấm nền cảm ứng - màn hình (Samsung)</u></p>
-      <img
-        src="https://i.postimg.cc/nzgTbgdM/IMG-20251018-151140-339.jpg"
-        alt="Ảnh"
-        width="100"
-        height="100"
-      />
-      <p>
-        <i>YouTube Movies:</i>
-        <a
-          href="https://youtube.com/shorts/8-sH3sVF_7g?si=HCdu5V806CpBPJ0A"
-          target="_blank"
-          >🎬</a
-        >
-      </p>
+        <div id="feedbackList"></div>
+      </section>
 
-      <p><u>BatteryStats Reset 📴</u></p>
-      <img
-        src="https://i.postimg.cc/WpSgkQmK/IMG-20251018-151836-349.jpg"
-        alt="Ảnh"
-        width="100"
-        height="100"
-      />
-      <p>
-        <i>YouTube Movies:</i>
-        <a
-          href="https://youtube.com/shorts/IsNcX1CAeYQ?si=Z-ysGrD9DoDT5F3A"
-          target="_blank"
-          >🎬</a
-        >
-      </p>
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2>Dự án / Vọc vạch</h2>
+        <p><u>BatteryStats Reset 📴</u></p>
+        <img src="https://i.postimg.cc/WpSgkQmK/IMG-20251018-151836-349.jpg" width="100"><br>
+        <a href="https://youtube.com/shorts/IsNcX1CAeYQ?si=Z-ysGrD9DoDT5F3A" target="_blank">▶️ Xem video</a>
 
-      <p><u>Cách cài Trollstore cho iOS</u></p>
-      <img
-        src="https://i.postimg.cc/76P6HvZd/file-000000000e0862088ce26b249be88cc8.png"
-        alt="Ảnh"
-        width="100"
-        height="100"
-      />
-      <p>
-        <i>YouTube Movies:</i>
-        <a
-          href="https://youtu.be/-3WF-zqa_C8?si=QHR99CqeMazsPmnW"
-          target="_blank"
-          >🎬</a
-        >
-      </p>
+        <p><u>Cập nhật firmware tấm nền cảm ứng Samsung</u></p>
+        <img src="https://i.postimg.cc/nzgTbgdM/IMG-20251018-151140-339.jpg" width="100"><br>
+        <a href="https://youtube.com/shorts/8-sH3sVF_7g?si=HCdu5V806CpBPJ0A" target="_blank">▶️ Xem video</a>
 
-      <!-- Contact Section -->
-<p><b>Contact Me 👤👤</b></p>
-<p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="16" height="16">
-  <a href="https://www.facebook.com/quangdinhbev" target="_blank">Quiin Quang Dinh (Quang Định)</a>
-</p>
-<p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="16" height="16">
-  <a href="https://t.me/quangdingsw" target="_blank">@quangdingsw</a>
-</p>
-<p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="16" height="16">
-  <a href="https://t.me/quangdinhsuachua" target="_blank">@quangdinhsuachua</a>
-</p>
-<p>
-  <img src="https://i.postimg.cc/L5ppVwJr/images.png" alt="Call" width="16" height="16">
-  <a href="tel:+84385763287">+84 385 763 287</a>
-</p>
-<p>
-  <img src="https://i.postimg.cc/Kz7VmzYN/t-i-xu-ng.png" alt="Email" width="16" height="16">
-  <a href="mailto:quiinquangdinh@gmail.com">quiinquangdinh@gmail.com</a>
-</p>
-<p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" width="16" height="16">
-  <a href="https://www.youtube.com/@Quiinquangdinh" target="_blank">Quiin Quang Dinh</a>
-</p>
-      </div>
+        <p><u>Cách cài TrollStore cho iOS</u></p>
+        <img src="https://i.postimg.cc/76P6HvZd/file-000000000e0862088ce26b249be88cc8.png" width="100"><br>
+        <a href="https://youtu.be/-3WF-zqa_C8?si=QHR99CqeMazsPmnW" target="_blank">▶️ Hướng dẫn chi tiết</a>
+      </section>
+
+      <!-- SUPPORT (comments + replies threaded) -->
+      <section id="support">
+        <h2>💬 Yêu cầu hỗ trợ <span id="commentCount" class="small-muted">(0)</span></h2>
+        <p>Mọi người đều có thể gửi yêu cầu và trả lời — dữ liệu lưu vĩnh viễn.</p>
+
+        <form id="commentForm" style="margin-bottom:12px">
+          <input id="name" type="text" placeholder="Tên của bạn" required />
+          <textarea id="message" rows="3" placeholder="Nội dung cần hỗ trợ..." required></textarea>
+          <button class="btn" type="submit">Gửi bình luận</button>
+        </form>
+
+        <div id="commentsList"></div>
+      </section>
     </main>
 
-    <footer>
-      © 2025 Quiin Quang Dinh - Lập Trình Viên - Kỹ Thuật Viên. All rights reserved.
-    </footer>
+    <footer>© 2025 Quiin Quang Dinh - Lập Trình Viên - Kỹ Thuật Viên.</footer>
+
+    <!-- floating contact + toTop -->
+    <div class="floating" aria-hidden>
+      <a href="tel:+84385763287" title="Gọi ngay"><i class="fa fa-phone"></i></a>
+      <a href="https://t.me/quangdingsw" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+      <button class="open-support" id="openSupportBtn" title="Mở phần Yêu cầu hỗ trợ">💬</button>
+    </div>
+    <button id="toTop" title="Lên đầu">↑</button>
+
+    <!-- Firebase + logic -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+      import {
+        getFirestore, collection, addDoc, query, orderBy, serverTimestamp,
+        onSnapshot, collectionGroup
+      } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+      // --- Firebase config (bạn đã cung cấp) ---
+      const firebaseConfig = {
+        apiKey: "AIzaSyARP2LJLk4mpE25OsQ9sPzj9mH9IgQDVBE",
+        authDomain: "quiinquangdinhsupport.firebaseapp.com",
+        projectId: "quiinquangdinhsupport",
+        storageBucket: "quiinquangdinhsupport.firebasestorage.app",
+        messagingSenderId: "403583476223",
+        appId: "1:403583476223:web:a31e6fa01f31e3cb9947ca",
+        measurementId: "G-M48ECLEJZE"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // ---------- FEEDBACK (collection: feedbacks) ----------
+      const feedbackForm = document.getElementById('feedbackForm');
+      const feedbackList = document.getElementById('feedbackList');
+
+      feedbackForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('fb_name').value.trim();
+        const msg = document.getElementById('fb_message').value.trim();
+        if(!name || !msg) return alert('Vui lòng nhập đầy đủ!');
+        try {
+          await addDoc(collection(db, 'feedbacks'), { name, message: msg, createdAt: serverTimestamp() });
+          feedbackForm.reset();
+        } catch (err) {
+          console.error('Feedback error', err);
+          alert('Gửi feedback thất bại.');
+        }
+      });
+
+      // realtime feedbacks
+      const qFeedback = query(collection(db, 'feedbacks'), orderBy('createdAt', 'desc'));
+      onSnapshot(qFeedback, snap => {
+        feedbackList.innerHTML = '';
+        if(snap.empty){ feedbackList.innerHTML = '<p>Chưa có feedback nào.</p>'; return; }
+        snap.forEach(docSnap => {
+          const d = docSnap.data();
+          const date = d.createdAt?.toDate?.toLocaleString('vi-VN') || 'Vừa xong';
+          const el = document.createElement('div');
+          el.className = 'feedback-card';
+          el.innerHTML = `<b>${escapeHtml(d.name)}</b> <span class="small-muted">(${date})</span><div style="margin-top:6px">${escapeHtml(d.message)}</div>`;
+          feedbackList.appendChild(el);
+        });
+      });
+
+      // ---------- COMMENTS + REPLIES (collection: comments, subcollection replies) ----------
+      const commentForm = document.getElementById('commentForm');
+      const commentsList = document.getElementById('commentsList');
+      const commentCountEl = document.getElementById('commentCount');
+
+      commentForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const msg = document.getElementById('message').value.trim();
+        if(!name || !msg) return alert('Vui lòng nhập đầy đủ!');
+        try {
+          await addDoc(collection(db, 'comments'), { name, message: msg, createdAt: serverTimestamp() });
+          commentForm.reset();
+        } catch (err) {
+          console.error('Add comment error', err);
+          alert('Gửi bình luận thất bại.');
+        }
+      });
+
+      // helper escape
+      function escapeHtml(t){ if(!t) return ''; return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+
+      // create reply form node
+      function createReplyForm(commentId){
+        const c = document.createElement('div');
+        c.className = 'reply-item';
+        c.style.marginLeft='12px';
+        c.innerHTML = `
+          <input class="rname" type="text" placeholder="Tên của bạn" style="width:100%;padding:6px;margin:6px 0;border-radius:6px">
+          <textarea class="rmsg" rows="2" placeholder="Phản hồi..." style="width:100%;padding:6px;margin:6px 0;border-radius:6px"></textarea>
+          <div style="display:flex;gap:8px">
+            <button class="btn sendReply">Gửi</button>
+            <button class="btn ghost cancelReply">Hủy</button>
+          </div>
+        `;
+        c.querySelector('.cancelReply').addEventListener('click', ()=> c.remove());
+        c.querySelector('.sendReply').addEventListener('click', async ()=>{
+          const rname = c.querySelector('.rname').value.trim();
+          const rmsg = c.querySelector('.rmsg').value.trim();
+          if(!rname || !rmsg) return alert('Nhập tên và nội dung trả lời!');
+          try {
+            await addDoc(collection(db, 'comments', commentId, 'replies'), { name: rname, message: rmsg, createdAt: serverTimestamp() });
+            c.remove();
+          } catch (err) {
+            console.error('Reply error', err);
+            alert('Gửi trả lời thất bại.');
+          }
+        });
+        return c;
+      }
+
+      // realtime comments
+      const qComments = query(collection(db,'comments'), orderBy('createdAt','desc'));
+      onSnapshot(qComments, snapshot => {
+        commentsList.innerHTML = '';
+        commentCountEl.textContent = `(${snapshot.size})`;
+        if(snapshot.empty){ commentsList.innerHTML = '<p>Chưa có bình luận nào.</p>'; return; }
+        snapshot.forEach(docSnap=>{
+          const id = docSnap.id;
+          const data = docSnap.data();
+          const date = data.createdAt?.toDate?.toLocaleString('vi-VN') || 'Vừa xong';
+
+          const box = document.createElement('div');
+          box.className = 'comment-box';
+          box.dataset.id = id;
+          box.innerHTML = `
+            <div><b>${escapeHtml(data.name)}</b> <span class="small-muted">(${date})</span></div>
+            <div style="margin-top:8px">${escapeHtml(data.message)}</div>
+            <div style="margin-top:8px" class="small-muted"><button class="btn ghost btn-reply">Trả lời</button></div>
+            <div class="replies" style="margin-top:8px;margin-left:12px"></div>
+          `;
+          commentsList.appendChild(box);
+
+          // reply button
+          box.querySelector('.btn-reply').addEventListener('click', ()=>{
+            const repliesEl = box.querySelector('.replies');
+            if(repliesEl.querySelector('.reply-item') && repliesEl.querySelector('.reply-item').classList.contains('reply-form')) return;
+            const formNode = createReplyForm(id);
+            formNode.classList.add('reply-form');
+            repliesEl.prepend(formNode);
+          });
+
+          // realtime replies for this comment
+          const repliesQ = query(collection(db,'comments', id, 'replies'), orderBy('createdAt','asc'));
+          onSnapshot(repliesQ, snapR => {
+            const repliesEl = box.querySelector('.replies');
+            // keep reply form if exists
+            const existingForm = repliesEl.querySelector('.reply-form');
+            repliesEl.innerHTML = '';
+            if(existingForm) repliesEl.appendChild(existingForm);
+            snapR.forEach(rdoc=>{
+              const r = rdoc.data();
+              const rdate = r.createdAt?.toDate?.toLocaleString('vi-VN') || 'Vừa xong';
+              const rnode = document.createElement('div');
+              rnode.className = 'reply-item';
+              rnode.innerHTML = `<b>${escapeHtml(r.name)}</b> <span class="small-muted">(${rdate})</span><div style="margin-top:6px">${escapeHtml(r.message)}</div>`;
+              repliesEl.appendChild(rnode);
+            });
+          }, err => console.error('replies onSnapshot err', err));
+        });
+      }, err => console.error('comments onSnapshot err', err));
+
+      // ---------- UI helpers ----------
+      // open support button => scroll to support
+      document.getElementById('openSupportBtn').addEventListener('click', ()=> {
+        document.querySelector('#support').scrollIntoView({behavior:'smooth', block:'start'});
+      });
+      // to top
+      document.getElementById('toTop').addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+      // dark mode toggle (persist)
+      const root = document.documentElement;
+      const toggle = document.getElementById('darkToggle');
+      const saved = localStorage.getItem('theme');
+      if(saved === 'dark') root.setAttribute('data-theme','dark');
+      toggle.addEventListener('click', ()=>{
+        if(root.getAttribute('data-theme') === 'dark'){
+          root.removeAttribute('data-theme'); localStorage.setItem('theme','light'); toggle.textContent='Dark Mode';
+        } else {
+          root.setAttribute('data-theme','dark'); localStorage.setItem('theme','dark'); toggle.textContent='Light Mode';
+        }
+      });
+      // set text for initial
+      if(root.getAttribute('data-theme') === 'dark') toggle.textContent='Light Mode';
+
+      // optional: scroll-to-top visibility
+      window.addEventListener('scroll', ()=> {
+        const t = document.getElementById('toTop');
+        if(window.scrollY > 300) t.style.display = 'inline-block'; else t.style.display = 'none';
+      });
+      // hide initially
+      document.getElementById('toTop').style.display='none';
+
+      // nice: show momentarily toast? (simple)
+      function toast(msg){ const s = document.createElement('div'); s.style.position='fixed'; s.style.left='50%'; s.style.transform='translateX(-50%)'; s.style.bottom='90px'; s.style.background='var(--card)'; s.style.padding='10px 16px'; s.style.border='1px solid #ddd'; s.style.borderRadius='8px'; s.style.zIndex=9999; s.textContent=msg; document.body.appendChild(s); setTimeout(()=>s.remove(),2200); }
+      // show toast when submit success (listening via onSnapshot already updates)
+      // You can call toast("Đã gửi!") where needed.
+    </script>
   </body>
-  </html>
+</html>
